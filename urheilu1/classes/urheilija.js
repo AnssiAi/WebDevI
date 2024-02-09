@@ -1,24 +1,25 @@
 const Henkilo = require('./henkilo.js')
-
 class Urheilija extends Henkilo {
-  constructor(
-    firstNames,
-    lastName,
-    callSign,
-    birthYear,
-    imgLink,
-    weight,
-    sport,
-    awards
-  ) {
-    super(firstNames, lastName, callSign, birthYear)
-    this.imgLink = imgLink
-    this.weight = weight
-    this.sport = sport
-    this.awards = awards
+  //Konstruktoria pienennetty spread syntaksilla.
+  constructor({ ...args }) {
+    super(args.firstNames, args.lastName, args.callSign, args.birthYear)
+    this.imgLink = args.imgLink
+    this.weight = args.weight
+    this.sport = args.sport
+    this.awards = args.awards
   }
-  getName() {
-    return super.getFullName()
+  getDetails() {
+    const details = {
+      name: super.getFullName(),
+      birth: super.getBirthYear().toDateString(),
+      weight: this.weight,
+      sport: this.sport,
+    }
+    return details
+  }
+
+  getImg() {
+    return this.imgLink
   }
 
   getAwards() {
@@ -26,7 +27,11 @@ class Urheilija extends Henkilo {
   }
 
   setAwards(award) {
-    this.awards = this.awards.concat(award)
+    if (typeof award === 'string') {
+      this.awards = this.awards.concat(award)
+      return true
+    }
+    throw new Error('Annettu tieto oli väärää tyyppiä')
   }
 }
 
