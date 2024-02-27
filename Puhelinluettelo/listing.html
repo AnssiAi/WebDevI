@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luettelo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var tableBody = document.getElementById('listing-body')
+        // FETCHING DATA FROM JSON FILE
+        $.getJSON(
+          'http://a41d.k.time4vps.cloud:3001/henkilot',
+          function (data) {
+            $.each(data, function (key, val) {
+              $(tableBody).append(
+                `<tr><td>${val.nimi}</td><td>${val.puhelin}</td></tr>`
+              )
+            })
+          }
+        )
+      })
+    </script>
+    <div class="nav">
+      <a href="index.html">Koti</a>
+      <a href="search.html">Haku</a>
+    </div>
+    <div class="content">
+      <h1>Luettelo</h1>
+      <table class="listing-table">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Puhelinnumero</th>
+          </tr>
+        </thead>
+        <tbody id="listing-body"></tbody>
+      </table>
+    </div>
+  </body>
+</html>

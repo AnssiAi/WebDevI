@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Haku</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var listing = []
+        const nameInput = document.getElementById('nimi')
+        const numberInput = document.getElementById('puhelin')
+        //Api endpoint yksittäisen numeron hakemiseen ei ole tiedossa
+        //Haetaan kaikki listaan ja etsitään listasta
+        $.getJSON(
+          'http://a41d.k.time4vps.cloud:3001/henkilot',
+          function (data) {
+            $.each(data, function (key, val) {
+              listing = listing.concat(val)
+            })
+          }
+        )
+        $('#submit').on('click', function () {
+          const found = listing.find(item => item.nimi === nameInput.value)
+          if (found) {
+            numberInput.value = found.puhelin
+          }
+        })
+      })
+    </script>
+    <div class="nav">
+      <a href="index.html">Koti</a>
+      <a href="listing.html">Luettelo</a>
+    </div>
+    <div class="content">
+      <div class="form-content">
+        <h1>Hae puhelinnumero</h1>
+        <form id="form" name="form">
+          <legend>Etsi numeroa nimellä</legend>
+          <input
+            name="nimi"
+            id="nimi"
+            type="text"
+            value=""
+            maxlength="35"
+            size="35"
+          />
+          <input
+            name="puhelin"
+            id="puhelin"
+            type="text"
+            value=""
+            maxlength="35"
+            size="35"
+          />
+        </form>
+        <button id="submit">Hae puhelinnumero</button>
+      </div>
+    </div>
+  </body>
+</html>

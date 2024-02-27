@@ -1,0 +1,109 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 35px auto;
+}
+
+.nav {
+  grid-column: span 3;
+  grid-row: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: whitesmoke;
+  justify-content: center;
+}
+a {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  height: 100%;
+  width: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+a:hover {
+  color: white;
+  background: dimgray;
+}
+
+.content {
+  display: grid;
+  grid-column: 2;
+  grid-row: 2;
+  justify-items: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+thead th:nth-child(1) {
+  width: 50%;
+}
+th,
+td {
+  padding: 10px;
+}
+tbody tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+form {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: repeat(3, 2em);
+}
+
+input {
+  font-family: inherit;
+  font-size: 100%;
+  box-sizing: border-box;
+  background: whitesmoke;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: dimgray;
+  outline: none;
+}
+input:focus {
+  background: white;
+  border-color: green;
+}
+
+#submit {
+  font-family: inherit;
+  font-size: 100%;
+  width: 200px;
+  height: 25px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: green;
+  background: lightgreen;
+  margin-top: 10px;
+}
+
+#submit:hover {
+  color: white;
+  background: green;
+}
+
+#submit:active {
+  scale: 95%;
+}
