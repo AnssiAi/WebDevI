@@ -1,4 +1,4 @@
-const Urheilija = require('./classes/urheilija.js')
+import Urheilija from './classes/urheilija.js'
 
 //Lähetetään objektina, jotta Urheilija konstruktori on vähemmän raskas
 const sport1 = new Urheilija({

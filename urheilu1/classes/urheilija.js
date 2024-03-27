@@ -1,4 +1,4 @@
-const Henkilo = require('./henkilo.js')
+import Henkilo from './henkilo.js'
 class Urheilija extends Henkilo {
   //Konstruktoria pienennetty spread syntaksilla.
   constructor({ ...args }) {
@@ -35,4 +35,4 @@ class Urheilija extends Henkilo {
   }
 }
 
-module.exports = Urheilija
+export default Urheilija

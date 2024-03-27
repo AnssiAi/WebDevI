@@ -14,4 +14,4 @@ class Henkilo {
   }
 }
 
-module.exports = Henkilo
+export default Henkilo

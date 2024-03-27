@@ -1,0 +1,79 @@
+html,
+body {
+  font-family: 'Courier New', Courier, monospace;
+  --dot-bg: white;
+  --dot-color: black;
+  --dot-size: 1px;
+  --dot-space: 22px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+canvas {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+}
+
+.bg-navbar {
+  background-color: #ba274a;
+}
+.btn-custom {
+  color: white;
+  background-color: #ba274a;
+}
+
+.btn-custom:hover {
+  color: white;
+  background-color: #861c35;
+}
+
+.btn-custom:active {
+  scale: 95%;
+  color: white;
+  background-color: #861c35;
+}
+
+.bg-smoke {
+  background-color: #f6f4f3;
+}
+
+.bg-canvas {
+  background-color: #eee;
+}
+
+.bg-black {
+  background-color: #000004;
+}
+
+.bg-blue {
+  background-color: #336699;
+}
+
+#phoneNav a {
+  color: #000004;
+  font-size: 24px;
+}
+#phoneNav a:hover {
+  color: white;
+  background-color: #000004;
+  font-size: 24px;
+}
+
+#gameContent {
+  text-align: center;
+}
+
+#runButton {
+  margin-top: 5px;
+}
